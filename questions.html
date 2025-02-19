@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .question label {
+            font-size: 18px;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Path Questions</h1>
+        <form id="careerForm">
+            <!-- Questions -->
+            <div class="question">
+                <label>1. Do you enjoy solving complex problems and working with data?</label>
+                <input type="radio" name="q1" value="STEM"> Yes
+                <input type="radio" name="q1" value=""> No
+            </div>
+            <div class="question">
+                <label>2. Are you interested in helping people improve their health or recover from illnesses?</label>
+                <input type="radio" name="q2" value="Healthcare"> Yes
+                <input type="radio" name="q2" value=""> No
+            </div>
+            <div class="question">
+                <label>3. Do you have a passion for creating or performing art, music, or literature?</label>
+                <input type="radio" name="q3" value="Arts"> Yes
+                <input type="radio" name="q3" value=""> No
+            </div>
+            <div class="question">
+                <label>4. Do you enjoy leading teams and managing projects?</label>
+                <input type="radio" name="q4" value="Business"> Yes
+                <input type="radio" name="q4" value=""> No
+            </div>
+            <div class="question">
+                <label>5. Are you fascinated by human behavior and understanding why people act the way they do?</label>
+                <input type="radio" name="q5" value="SocialSciences"> Yes
+                <input type="radio" name="q5" value=""> No
+            </div>
+            <div class="question">
+                <label>6. Would you like to design or build structures, machines, or systems?</label>
+                <input type="radio" name="q6" value="STEM"> Yes
+                <input type="radio" name="q6" value=""> No
+            </div>
+            <div class="question">
+                <label>7. Are you interested in diagnosing and treating diseases?</label>
+                <input type="radio" name="q7" value="Healthcare"> Yes
+                <input type="radio" name="q7" value=""> No
+            </div>
+            <div class="question">
+                <label>8. Do you like analyzing financial data and planning budgets?</label>
+                <input type="radio" name="q8" value="Business"> Yes
+                <input type="radio" name="q8" value=""> No
+            </div>
+            <div class="question">
+                <label>9. Do you enjoy writing stories, blogs, or research articles?</label>
+                <input type="radio" name="q9" value="Arts"> Yes
+                <input type="radio" name="q9" value=""> No
+            </div>
+            <div class="question">
+                <label>10. Would you like to work on sustainable energy or environmental protection?</label>
+                <input type="radio" name="q10" value="STEM"> Yes
+                <input type="radio" name="q10" value=""> No
+            </div>
+            <div class="question">
+                <label>11. Are you interested in the legal system and helping people with legal advice?</label>
+                <input type="radio" name="q11" value="Business"> Yes
+                <input type="radio" name="q11" value=""> No
+            </div>
+            <div class="question">
+                <label>12. Do you enjoy experimenting in a lab or conducting scientific research?</label>
+                <input type="radio" name="q12" value="STEM"> Yes
+                <input type="radio" name="q12" value=""> No
+            </div>
+            <div class="question">
+                <label>13. Are you fascinated by how technology can improve everyday life?</label>
+                <input type="radio" name="q13" value="STEM"> Yes
+                <input type="radio" name="q13" value=""> No
+            </div>
+            <div class="question">
+                <label>14. Do you like teaching or mentoring others to help them grow?</label>
+                <input type="radio" name="q14" value="SocialSciences"> Yes
+                <input type="radio" name="q14" value=""> No
+            </div>
+            <div class="question">
+                <label>15. Would you like to explore the history and culture of different civilizations?</label>
+                <input type="radio" name="q15" value="Arts"> Yes
+                <input type="radio" name="q15" value=""> No
+            </div>
+            <div class="question">
+                <label>16. Are you interested in entrepreneurship and building your own business?</label>
+                <input type="radio" name="q16" value="Business"> Yes
+                <input type="radio" name="q16" value=""> No
+            </div>
+            <div class="question">
+                <label>17. Do you enjoy repairing and maintaining machinery or electronics?</label>
+                <input type="radio" name="q17" value="Trades"> Yes
+                <input type="radio" name="q17" value=""> No
+            </div>
+            <div class="question">
+                <label>18. Are you curious about studying political systems and their impact on society?</label>
+                <input type="radio" name="q18" value="SocialSciences"> Yes
+                <input type="radio" name="q18" value=""> No
+            </div>
+            <div class="question">
+                <label>19. Do you like cooking and experimenting with recipes?</label>
+                <input type="radio" name="q19" value="Trades"> Yes
+                <input type="radio" name="q19" value=""> No
+            </div>
+            <div class="question">
+                <label>20. Are you interested in coding and building software applications?</label>
+                <input type="radio" name="q20" value="STEM"> Yes
+                <input type="radio" name="q20" value=""> No
+            </div>
+            <button type="button" onclick="submitAnswers()">Submit</button>
+        </form>
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+    <script>
+        function submitAnswers() {
+            const formData = new FormData(document.getElementById('careerForm'));
+            const scores = {};
+
+            for (let [key, value] of formData.entries()) {
+                if (value) {
+                    scores[value] = (scores[value] || 0) + 1;
+                }
+            }
+
+            const maxScore = Math.max(...Object.values(scores));
+            const topCareers = Object.keys(scores).filter(career => scores[career] === maxScore);
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = `
+                <h2>Your Suggested Career Path(s):</h2>
+                <ul>
+                    ${topCareers.map(career => `<li>${career}</li>`).join('')}
+                </ul>
+                <p>Based on your answers, these career paths are most aligned with your interests!</p>
+            `;
+        }
+    </script>
+</body>
+</html>
