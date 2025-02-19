@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guidance Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        .input-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .input-group input {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        .options button {
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function navigateToQuestions() {
+            window.location.href = 'questions.html';
+        }
+
+        function navigateToGame() {
+            window.location.href = 'game.html';
+        }
+
+        function saveName() {
+            const name = document.getElementById('name').value;
+            if (name.trim() === '') {
+                alert('Please enter your name!');
+            } else {
+                localStorage.setItem('userName', name);
+                document.getElementById('welcome-message').innerText = `Welcome, ${name}! Choose your path below.`;
+                document.querySelector('.input-group').style.display = 'none';
+                document.querySelector('.options').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to AI-Driven Career Guidance</h1>
+        <div class="input-group">
+            <label for="name">Enter Your Name</label>
+            <input type="text" id="name" placeholder="Your Name">
+            <button onclick="saveName()" style="margin-top: 10px; padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Start</button>
+        </div>
+        <p id="welcome-message" style="font-size: 18px; color: #555;"></p>
+        <div class="options" style="display: none;">
+            <button onclick="navigateToQuestions()">Answer Questions</button>
+            <button onclick="navigateToGame()">Play a Fun Game</button>
+        </div>
+    </div>
+</body>
+</html>
