@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Quest Adventure</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .scenario {
+            margin-bottom: 20px;
+        }
+        .choices button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .choices button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #dff0d8;
+            border-left: 5px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Quest Adventure</h1>
+        <div id="game">
+            <div id="scenario" class="scenario">
+                <!-- Scenario text will appear here -->
+            </div>
+            <div class="choices" id="choices">
+                <!-- Choices will appear here -->
+            </div>
+            <div id="result" class="result" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        const scenarios = [
+            {
+                text: "You are stranded on a mysterious island. What do you do first?",
+                choices: [
+                    { text: "Analyze the environment for clues and resources.", value: "STEM" },
+                    { text: "Sketch the scenery to keep a record of the island.", value: "Arts" },
+                    { text: "Search for other survivors to form a team.", value: "SocialSciences" },
+                    { text: "Plan a strategy to explore the island systematically.", value: "Business" }
+                ]
+            },
+            {
+                text: "You discover an ancient artifact in a cave. What do you do?",
+                choices: [
+                    { text: "Examine it to understand its composition.", value: "STEM" },
+                    { text: "Write a story imagining its history.", value: "Arts" },
+                    { text: "Create a guide on how it could be useful to others.", value: "SocialSciences" },
+                    { text: "Consider its market value and how to sell it.", value: "Business" }
+                ]
+            },
+            {
+                text: "A team member gets injured during your adventure. What is your next step?",
+                choices: [
+                    { text: "Treat their injuries with makeshift tools.", value: "Healthcare" },
+                    { text: "Create an inspiring song to boost morale.", value: "Arts" },
+                    { text: "Organize a search party to find help.", value: "SocialSciences" },
+                    { text: "Design a stretcher to carry them safely.", value: "STEM" }
+                ]
+            }
+        ];
+
+        const scores = {};
+
+        let currentScenario = 0;
+
+        function loadScenario() {
+            const scenario = scenarios[currentScenario];
+            const scenarioDiv = document.getElementById("scenario");
+            const choicesDiv = document.getElementById("choices");
+
+            scenarioDiv.innerHTML = `<h2>${scenario.text}</h2>`;
+            choicesDiv.innerHTML = "";
+
+            scenario.choices.forEach(choice => {
+                const button = document.createElement("button");
+                button.textContent = choice.text;
+                button.onclick = () => {
+                    scores[choice.value] = (scores[choice.value] || 0) + 1;
+                    nextScenario();
+                };
+                choicesDiv.appendChild(button);
+            });
+        }
+
+        function nextScenario() {
+            currentScenario++;
+            if (currentScenario < scenarios.length) {
+                loadScenario();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const resultDiv = document.getElementById("result");
+            const choicesDiv = document.getElementById("choices");
+            const scenarioDiv = document.getElementById("scenario");
+
+            const maxScore = Math.max(...Object.values(scores));
+            const bestCareerPaths = Object.keys(scores).filter(key => scores[key] === maxScore);
+
+            scenarioDiv.style.display = "none";
+            choicesDiv.style.display = "none";
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = `
+                <h2>Your Career Quest Result:</h2>
+                <p>Based on your adventure, the most suitable career path(s) for you are:</p>
+                <ul>
+                    ${bestCareerPaths.map(career => `<li>${career}</li>`).join("")}
+                </ul>
+            `;
+        }
+
+        loadScenario();
+    </script>
+</body>
+</html>
